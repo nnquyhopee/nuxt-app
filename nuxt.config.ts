@@ -13,6 +13,10 @@ export default defineNuxtConfig({
   //     commons: true,
   //   },
   // },
+  css: ["vuetify/styles", "@mdi/font/css/materialdesignicons.css"],
+  build: {
+    transpile: ["vuetify"],
+  },
   modules: [
     "@pinia/nuxt",
     "@nuxt/content",
