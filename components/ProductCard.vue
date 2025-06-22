@@ -78,7 +78,7 @@ const props = defineProps<ProductProps>();
 const router = useRouter();
 const cartStore = useCartStore();
 const favoriteStore = useFavoriteStore();
-
+console.log(props);
 const isFavorite = computed(() => favoriteStore.isFavorite(props.product.id));
 
 const formatPrice = (price: number): string => {

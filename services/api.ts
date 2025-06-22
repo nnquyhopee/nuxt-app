@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create an axios instance with base settings
 const api = axios.create({
-  baseURL: process.env.API_BASE_URL || "http://localhost:3001/api",
+  baseURL: process.env.API_BASE_URL || "http://localhost:8080/api",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
@@ -13,9 +13,11 @@ const api = axios.create({
 // Request interceptor for adding auth token
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("auth_token");
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    if (import.meta.client) {
+      const token = localStorage.getItem("auth_token");
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
     }
     return config;
   },
@@ -68,6 +70,7 @@ api.interceptors.response.use(
 // Product API functions
 export const productApi = {
   getProducts(params = {}) {
+    console.log("Fetching products with params:", params);
     return api.get("/products", { params });
   },
 

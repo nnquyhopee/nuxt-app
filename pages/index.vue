@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ProductList from "~/components/ProductList.vue";
+
 const { count, increment } = useCounter();
 // definePageMeta({
 //   layout: false,
@@ -8,10 +10,6 @@ const { count, increment } = useCounter();
 
 <template>
   <div>
-    <h1>{{ capitalize("home page") }}</h1>
-    <MyButton @click="increment">Clicked {{ count }}</MyButton>
-
-    <v-icon size="48">mdi-heart</v-icon>
-    <p>Hello Vuetify!</p>
+    <ProductList></ProductList>
   </div>
 </template>

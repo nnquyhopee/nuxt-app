@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-
+import { productApi } from "@/services/api";
 interface ProductFilter {
   page?: number;
   limit?: number;
@@ -17,7 +17,7 @@ export const useProductStore = defineStore("product", {
     products: [],
     totalProducts: 0,
     loading: false,
-    error: null as Error | null,
+    error: null as string | null,
   }),
 
   actions: {
@@ -26,7 +26,7 @@ export const useProductStore = defineStore("product", {
       this.error = null;
 
       try {
-        const response = await axios.get("/api/products", {
+        const response = await productApi.getProducts({
           params: {
             _page: filters.page || 1,
             _limit: filters.limit || 12,
@@ -39,12 +39,13 @@ export const useProductStore = defineStore("product", {
             q: filters.search,
           },
         });
+        console.log("Response data:", respon  se.data);
 
         this.products = response.data;
         this.totalProducts = parseInt(response.headers["x-total-count"] || "0");
       } catch (error) {
         console.error("Error fetching products:", error);
-        this.error = error as Error;
+        this.error = error instanceof Error ? error.message : String(error);
       } finally {
         this.loading = false;
       }
@@ -53,37 +54,15 @@ export const useProductStore = defineStore("product", {
     async fetchProductById(id: number) {
       this.loading = true;
       this.error = null;
-
       try {
-        const response = await axios.get(`/api/products/${id}`);
+        const response = await productApi.getProductById(id);
         return response.data;
       } catch (error) {
-        console.error(`Error fetching product with id ${id}:`, error);
-        this.error = error as Error;
+        this.error = error instanceof Error ? error.message : String(error);
+
         return null;
       } finally {
         this.loading = false;
-      }
-    },
-
-    async fetchRelatedProducts(productId: number) {
-      try {
-        const product = await this.fetchProductById(productId);
-
-        if (!product) return [];
-
-        const response = await axios.get("/api/products", {
-          params: {
-            brandId: product.brandId,
-            id_ne: productId,
-            _limit: 4,
-          },
-        });
-
-        return response.data;
-      } catch (error) {
-        console.error("Error fetching related products:", error);
-        return [];
       }
     },
 

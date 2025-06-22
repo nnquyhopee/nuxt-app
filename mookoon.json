@@ -15,7 +15,7 @@
       "responses": [
         {
           "uuid": "e09dee40-c877-4a43-a837-b7dae240cfe0",
-          "body": "[\n  {{#repeat 12}}\n  {\n    \"id\": {{@index}},\n    \"name\": \"{{oneOf (array 'Laptop Apple MacBook Air' 'Dell XPS 13' 'HP Spectre x360' 'Lenovo ThinkPad X1 Carbon' 'Asus ZenBook 14' 'Acer Swift 5' 'MSI GS66 Stealth')}}\",\n    \"brand\": \"{{oneOf (array 'Apple' 'Dell' 'HP' 'Lenovo' 'Asus' 'Acer' 'MSI')}}\",\n    \"brandId\": {{oneOf (array 1 2 3 4 5 6 7)}},\n    \"categoryId\": {{oneOf (array 1 2 3 4 5)}},\n    \"price\": {{int 10000000 40000000}},\n    \"discountPercentage\": {{int 0 25}},\n    \"inStock\": {{boolean}},\n    \"cpu\": \"{{oneOf (array 'Intel Core i5-1135G7' 'Intel Core i7-1165G7' 'AMD Ryzen 5 5600H' 'AMD Ryzen 7 5800H' 'Apple M1' 'Apple M2' 'Intel Core i9-12900H')}}\",\n    \"ram\": \"{{oneOf (array '8GB' '16GB' '32GB' '64GB')}}\",\n    \"storage\": \"{{oneOf (array '256GB SSD' '512GB SSD' '1TB SSD' '2TB SSD')}}\",\n    \"gpu\": \"{{oneOf (array 'Intel Iris Xe' 'NVIDIA GeForce RTX 3050' 'NVIDIA GeForce RTX 3060' 'NVIDIA GeForce RTX 3070' 'AMD Radeon Graphics' 'Apple M1 GPU')}}\",\n    \"thumbnail\": \"https://picsum.photos/id/{{int 1 100}}/600/400\"\n  }\n  {{/repeat}}\n]",
+          "body": "{\r\n      \"id\": 1,\r\n      \"name\": \"MacBook Pro M2\",\r\n      \"brand\": \"Apple\",\r\n      \"brandId\": 1,\r\n      \"categoryId\": 2,\r\n      \"description\": \"Powerful laptop with Apple M2 chip.\",\r\n      \"price\": 34990000,\r\n      \"quantity\": 10,\r\n      \"cpu\": \"Apple M2\",\r\n      \"ram\": \"16GB\",\r\n      \"storage\": \"512GB SSD\",\r\n      \"gpu\": \"Apple M2 GPU\",\r\n      \"thumbnail\": \"https://picsum.photos/id/10/600/400\",\r\n      \"createdAt\": \"2024-01-10T10:00:00Z\",\r\n      \"updatedAt\": \"2024-06-01T12:00:00Z\"\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"name\": \"Dell XPS 13\",\r\n      \"brand\": \"Dell\",\r\n      \"brandId\": 2,\r\n      \"categoryId\": 2,\r\n      \"description\": \"Sleek and powerful ultrabook.\",\r\n      \"price\": 28990000,\r\n      \"quantity\": 15,\r\n      \"cpu\": \"Intel Core i7-1165G7\",\r\n      \"ram\": \"16GB\",\r\n      \"storage\": \"512GB SSD\",\r\n      \"gpu\": \"Intel Iris Xe\",\r\n      \"thumbnail\": \"https://picsum.photos/id/11/600/400\",\r\n      \"createdAt\": \"2024-02-15T10:00:00Z\",\r\n      \"updatedAt\": \"2024-06-05T12:00:00Z\"\r\n    }",
           "latency": 0,
           "statusCode": 200,
           "label": "Success",
@@ -31,15 +31,57 @@
           ],
           "filePath": "",
           "sendFileAsBody": false,
-          "rules": [],
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "_page",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
           "default": true,
           "crudKey": "id",
           "callbacks": [],
-          "bodyType": "DATABUCKET",
+          "bodyType": "INLINE",
           "databucketID": "i9k9"
+        },
+        {
+          "uuid": "5a6c0e63-31dd-4320-9e09-ced24180b2d4",
+          "body": "[\n  {\n    \"id\": 3,\n    \"name\": \"Asus ZenBook 14\",\n    \"brand\": \"Asus\",\n    \"brandId\": 3,\n    \"categoryId\": 2,\n    \"description\": \"Lightweight and powerful laptop for everyday use.\",\n    \"price\": 19990000,\n    \"quantity\": 20,\n    \"cpu\": \"AMD Ryzen 7 5800H\",\n    \"ram\": \"16GB\",\n    \"storage\": \"1TB SSD\",\n    \"gpu\": \"NVIDIA GeForce RTX 3050\",\n    \"thumbnail\": \"https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/g/r/group_744_1_12.png\",\n    \"createdAt\": \"2024-03-10T10:00:00Z\",\n    \"updatedAt\": \"2024-06-10T12:00:00Z\"\n  },\n  {\n    \"id\": 4,\n    \"name\": \"MSI Stealth 15M\",\n    \"brand\": \"MSI\",\n    \"brandId\": 6,\n    \"categoryId\": 2,\n    \"description\": \"Gaming laptop with powerful GPU and modern design.\",\n    \"price\": 31044406,\n    \"quantity\": 12,\n    \"cpu\": \"Apple M2\",\n    \"ram\": \"32GB\",\n    \"storage\": \"256GB SSD\",\n    \"gpu\": \"NVIDIA GeForce RTX 3050\",\n    \"thumbnail\": \"https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/t/e/text_ng_n_1__2_26.png\",\n    \"createdAt\": \"2024-04-01T10:00:00Z\",\n    \"updatedAt\": \"2024-06-15T12:00:00Z\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "_page",
+              "value": "2",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
         }
       ],
       "responseMode": null,

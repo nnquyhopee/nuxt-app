@@ -25,6 +25,10 @@ export default defineNuxtConfig({
     },
     plugins: [vuetify({ autoImport: true })],
   },
+  sourcemap: {
+    server: true,
+    client: true,
+  },
   modules: [
     "@pinia/nuxt",
     "@nuxt/content",

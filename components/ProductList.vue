@@ -31,11 +31,7 @@
     </div>
 
     <div v-else :class="['products-container', `view-${viewType}`]">
-      <ProductCard
-        v-for="product in filteredProducts"
-        :key="product.id"
-        :product="product"
-      />
+      <ProductCard v-for="product in filteredProducts" :product="product" />
     </div>
 
     <div class="pagination-container">
@@ -51,6 +47,7 @@
 <script lang="ts" setup>
 import { ref, computed, watch } from "vue";
 import { useProductStore } from "~/stores/product";
+import { toRaw } from "vue";
 
 const props = defineProps({
   filters: {
@@ -81,7 +78,7 @@ const fetchProducts = async () => {
       page: currentPage.value,
       limit: itemsPerPage.value,
       sort: sortBy.value,
-      ...props.filters,
+      ...toRaw(props.filters),
     });
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -96,6 +93,7 @@ watch([currentPage, sortBy, () => props.filters], fetchProducts, {
 });
 
 const filteredProducts = computed(() => productStore.products);
+console.log("Filtered Products:", filteredProducts.value);
 const totalProducts = computed(() => productStore.totalProducts);
 const totalPages = computed(() =>
   Math.ceil(totalProducts.value / itemsPerPage.value)

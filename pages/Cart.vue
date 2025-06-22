@@ -73,7 +73,9 @@
         </div>
         <div class="summary-row total">
           <span>Tổng cộng</span>
-          <span>{{ formatPrice(cartStore.total) }}</span>
+          <span>{{
+            formatPrice(cartStore.shippingFee + cartStore.subtotal)
+          }}</span>
         </div>
       </div>
 
