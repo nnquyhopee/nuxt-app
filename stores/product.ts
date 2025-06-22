@@ -39,7 +39,7 @@ export const useProductStore = defineStore("product", {
             q: filters.search,
           },
         });
-        console.log("Response data:", respon  se.data);
+        console.log("Response data:", response.data);
 
         this.products = response.data;
         this.totalProducts = parseInt(response.headers["x-total-count"] || "0");
