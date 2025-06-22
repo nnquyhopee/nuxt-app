@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const { count, increment } = useCounter();
+// definePageMeta({
+//   layout: false,
+// });
+//
 </script>
 
 <template>
@@ -7,7 +11,7 @@ const { count, increment } = useCounter();
     <h1>{{ capitalize("home page") }}</h1>
     <MyButton @click="increment">Clicked {{ count }}</MyButton>
 
-    <v-icon size="48">mdi-home</v-icon>
+    <v-icon size="48">mdi-heart</v-icon>
     <p>Hello Vuetify!</p>
   </div>
 </template>

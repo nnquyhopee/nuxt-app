@@ -2,15 +2,12 @@
   <div class="cart-drawer">
     <div class="cart-header">
       <h2>Giỏ hàng ({{ cartStore.totalItems }})</h2>
-      <v-btn icon @click="$emit('close')">
-        <v-icon>mdi-close</v-icon>
-      </v-btn>
     </div>
 
     <div v-if="cartStore.isEmpty" class="empty-cart">
       <v-icon size="64" color="grey lighten-1">mdi-cart-outline</v-icon>
       <p>Giỏ hàng của bạn đang trống</p>
-      <v-btn color="primary" @click="$emit('close')">Tiếp tục mua sắm</v-btn>
+      <v-btn color="primary" to="/products">Tiếp tục mua sắm</v-btn>
     </div>
 
     <div v-else class="cart-content">
@@ -84,9 +81,6 @@
         <v-btn block color="primary" size="large" to="/checkout">
           Tiến hành thanh toán
         </v-btn>
-        <v-btn block variant="outlined" class="mt-2" @click="$emit('close')">
-          Tiếp tục mua sắm
-        </v-btn>
       </div>
     </div>
   </div>
@@ -94,8 +88,6 @@
 
 <script lang="ts" setup>
 import { useCartStore } from "~/stores/cart";
-
-defineEmits(["close"]);
 
 const cartStore = useCartStore();
 

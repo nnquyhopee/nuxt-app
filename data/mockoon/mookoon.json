@@ -1,0 +1,255 @@
+{
+  "uuid": "af85f738-270e-4127-a659-58a57fe1ab51",
+  "lastMigration": 33,
+  "name": "Laptop E-commerce API",
+  "endpointPrefix": "api",
+  "latency": 0,
+  "port": 8080,
+  "hostname": "",
+  "routes": [
+    {
+      "uuid": "63af615c-9427-4afc-aff7-0d82adeb960c",
+      "documentation": "Get all products with pagination and filtering",
+      "method": "get",
+      "endpoint": "products",
+      "responses": [
+        {
+          "uuid": "a0730c3f-77fb-4334-9f89-77a5246e68cc",
+          "body": "[\n  {{#repeat 12}}\n  {\n    \"id\": {{@index}},\n    \"name\": \"{{oneOf (array 'Laptop Apple MacBook Air' 'Dell XPS 13' 'HP Spectre x360' 'Lenovo ThinkPad X1 Carbon' 'Asus ZenBook 14' 'Acer Swift 5' 'MSI GS66 Stealth')}}\",\n    \"brand\": \"{{oneOf (array 'Apple' 'Dell' 'HP' 'Lenovo' 'Asus' 'Acer' 'MSI')}}\",\n    \"brandId\": {{oneOf (array 1 2 3 4 5 6 7)}},\n    \"categoryId\": {{oneOf (array 1 2 3 4 5)}},\n    \"price\": {{int 10000000 40000000}},\n    \"discountPercentage\": {{int 0 25}},\n    \"inStock\": {{boolean}},\n    \"cpu\": \"{{oneOf (array 'Intel Core i5-1135G7' 'Intel Core i7-1165G7' 'AMD Ryzen 5 5600H' 'AMD Ryzen 7 5800H' 'Apple M1' 'Apple M2' 'Intel Core i9-12900H')}}\",\n    \"ram\": \"{{oneOf (array '8GB' '16GB' '32GB' '64GB')}}\",\n    \"storage\": \"{{oneOf (array '256GB SSD' '512GB SSD' '1TB SSD' '2TB SSD')}}\",\n    \"gpu\": \"{{oneOf (array 'Intel Iris Xe' 'NVIDIA GeForce RTX 3050' 'NVIDIA GeForce RTX 3060' 'NVIDIA GeForce RTX 3070' 'AMD Radeon Graphics' 'Apple M1 GPU')}}\",\n    \"thumbnail\": \"https://picsum.photos/id/{{int 1 100}}/600/400\"\n  }\n  {{/repeat}}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "x-total-count",
+              "value": "100"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": [],
+          "bodyType": "INLINE",
+          "databucketID": ""
+        }
+      ],
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3cf8c59d-9a18-4037-b471-d2bc0dfa963c",
+      "documentation": "Get product by ID",
+      "method": "get",
+      "endpoint": "products/:id",
+      "responses": [
+        {
+          "uuid": "dc4ea57c-6e77-4476-a1b3-bc245fc32d77",
+          "body": "{\n  \"id\": {{request.params.id}},\n  \"name\": \"{{oneOf (array 'Laptop Apple MacBook Air M2' 'Dell XPS 13 Plus' 'HP Spectre x360 16' 'Lenovo ThinkPad X1 Carbon Gen 10' 'Asus ZenBook Pro 14 Duo OLED' 'Acer Swift Edge' 'MSI Creator Z17')}}\",\n  \"brand\": \"{{oneOf (array 'Apple' 'Dell' 'HP' 'Lenovo' 'Asus' 'Acer' 'MSI')}}\",\n  \"brandId\": {{oneOf (array 1 2 3 4 5 6 7)}},\n  \"categoryId\": {{oneOf (array 1 2 3 4 5)}},\n  \"price\": {{int 10000000 40000000}},\n  \"discountPercentage\": {{int 0 25}},\n  \"inStock\": {{boolean}},\n  \"cpu\": \"{{oneOf (array 'Intel Core i5-1240P' 'Intel Core i7-1260P' 'AMD Ryzen 5 6600H' 'AMD Ryzen 7 6800H' 'Apple M1' 'Apple M2' 'Intel Core i9-12900H')}}\",\n  \"ram\": \"{{oneOf (array '8GB' '16GB' '32GB' '64GB')}}\",\n  \"storage\": \"{{oneOf (array '256GB SSD' '512GB SSD' '1TB SSD' '2TB SSD')}}\",\n  \"gpu\": \"{{oneOf (array 'Intel Iris Xe' 'NVIDIA GeForce RTX 3050' 'NVIDIA GeForce RTX 3060' 'NVIDIA GeForce RTX 3070' 'AMD Radeon Graphics' 'Apple M2 GPU')}}\",\n  \"display\": \"{{oneOf (array '13.3-inch Retina' '14-inch OLED' '15.6-inch IPS' '16-inch Mini-LED' '17.3-inch 165Hz')}}\",\n  \"os\": \"{{oneOf (array 'macOS' 'Windows 11 Home' 'Windows 11 Pro' 'Ubuntu Linux')}}\",\n  \"weight\": \"{{oneOf (array '1.29 kg' '1.4 kg' '1.6 kg' '1.8 kg' '2.1 kg')}}\",\n  \"images\": [\n    \"https://picsum.photos/id/{{int 1 20}}/800/600\",\n    \"https://picsum.photos/id/{{int 21 40}}/800/600\",\n    \"https://picsum.photos/id/{{int 41 60}}/800/600\",\n    \"https://picsum.photos/id/{{int 61 80}}/800/600\"\n  ],\n  \"description\": \"<p>Sản phẩm laptop cao cấp với hiệu năng mạnh mẽ, màn hình sắc nét và thời lượng pin dài. Thiết kế hiện đại, mỏng nhẹ phù hợp cho công việc di động và giải trí.</p><p>Bàn phím chiclet với hành trình phím thoải mái, hệ thống tản nhiệt tiên tiến đảm bảo máy luôn mát mẻ khi sử dụng trong thời gian dài.</p><h3>Tính năng nổi bật:</h3><ul><li>Hiệu năng mạnh mẽ với {{oneOf (array 'Intel Core i7' 'Apple M2' 'AMD Ryzen 7')}}</li><li>Màn hình {{oneOf (array 'Retina' 'OLED' 'IPS')}} độ phân giải cao</li><li>Pin dùng liên tục đến {{int 8 15}} giờ</li><li>Tản nhiệt hiệu quả, vận hành êm ái</li></ul>\",\n  \"promotions\": [\n    \"Tặng kèm balo laptop chính hãng\",\n    \"Giảm 10% khi mua cùng chuột và bàn phím\",\n    \"Bảo hành 24 tháng chính hãng\",\n    \"Miễn phí cài đặt phần mềm\"\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": [],
+          "bodyType": "INLINE",
+          "databucketID": ""
+        }
+      ],
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "286d3445-d04a-462a-88ae-f47d9158947c",
+      "documentation": "Login endpoint",
+      "method": "post",
+      "endpoint": "auth/login",
+      "responses": [
+        {
+          "uuid": "4e0ca641-cbed-4df5-bfa4-4b55e7591b50",
+          "body": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3QgVXNlciIsImlhdCI6MTUxNjIzOTAyMn0\",\n  \"user\": {\n    \"id\": 1,\n    \"name\": \"Test User\",\n    \"email\": \"{{body.email}}\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": [],
+          "bodyType": "INLINE",
+          "databucketID": ""
+        }
+      ],
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "034cf48d-c358-43c5-b1d6-9bf4c4e31a15",
+      "documentation": "Get cart items",
+      "method": "get",
+      "endpoint": "cart",
+      "responses": [
+        {
+          "uuid": "d83891e6-3fc0-4593-815d-2a3300aa8eb3",
+          "body": "{\n  \"items\": [\n    {{#repeat (int 1 4)}}\n    {\n      \"id\": {{@index}},\n      \"productId\": {{int 1 20}},\n      \"name\": \"{{oneOf (array 'Laptop Apple MacBook Air' 'Dell XPS 13' 'HP Spectre x360' 'Lenovo ThinkPad X1' 'Asus ZenBook')}}\",\n      \"price\": {{int 10000000 35000000}},\n      \"quantity\": {{int 1 3}},\n      \"thumbnail\": \"https://picsum.photos/id/{{int 1 100}}/200/200\"\n    }\n    {{/repeat}}\n  ],\n  \"subtotal\": {{int 15000000 90000000}},\n  \"shippingFee\": 30000,\n  \"total\": {{int 15030000 90030000}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": [],
+          "bodyType": "INLINE",
+          "databucketID": ""
+        }
+      ],
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8d7cb5a0-6811-4b01-b697-d60060af87c9",
+      "documentation": "Create order",
+      "method": "post",
+      "endpoint": "orders",
+      "responses": [
+        {
+          "uuid": "36b1a9eb-0e28-4cdb-bd96-a589d0e0eb5a",
+          "body": "{\n  \"id\": {{int 1000 9999}},\n  \"orderNumber\": \"ORD-{{int 10000 99999}}\",\n  \"date\": \"{{now}}\",\n  \"status\": \"pending\",\n  \"customer\": {\n    \"name\": \"{{body.customer.name}}\",\n    \"email\": \"{{body.customer.email}}\",\n    \"phone\": \"{{body.customer.phone}}\",\n    \"address\": \"{{body.customer.address}}\"\n  },\n  \"items\": {{body.items}},\n  \"subtotal\": {{body.subtotal}},\n  \"shippingFee\": {{body.shippingFee}},\n  \"total\": {{body.total}},\n  \"paymentMethod\": \"{{body.paymentMethod}}\"\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": [],
+          "bodyType": "INLINE",
+          "databucketID": ""
+        }
+      ],
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "folders": [],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "63af615c-9427-4afc-aff7-0d82adeb960c"
+    },
+    {
+      "type": "route",
+      "uuid": "3cf8c59d-9a18-4037-b471-d2bc0dfa963c"
+    },
+    {
+      "type": "route",
+      "uuid": "286d3445-d04a-462a-88ae-f47d9158947c"
+    },
+    {
+      "type": "route",
+      "uuid": "034cf48d-c358-43c5-b1d6-9bf4c4e31a15"
+    },
+    {
+      "type": "route",
+      "uuid": "8d7cb5a0-6811-4b01-b697-d60060af87c9"
+    }
+  ],
+  "callbacks": []
+}

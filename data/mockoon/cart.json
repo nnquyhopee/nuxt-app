@@ -1,0 +1,22 @@
+{
+  "userId": 1,
+  "items": [
+    {
+      "productId": 1,
+      "name": "MacBook Pro M2",
+      "price": 34990000,
+      "quantity": 1,
+      "thumbnail": "https://picsum.photos/id/10/600/400"
+    },
+    {
+      "productId": 2,
+      "name": "Dell XPS 13",
+      "price": 28990000,
+      "quantity": 2,
+      "thumbnail": "https://picsum.photos/id/11/600/400"
+    }
+  ],
+  "subtotal": 92970000,
+  "shippingFee": 30000,
+  "total": 93000000
+}

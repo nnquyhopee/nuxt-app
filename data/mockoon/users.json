@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Nguyen Van A",
+      "email": "a@example.com",
+      "phone": "0901234567",
+      "address": "123 Đường ABC, Quận 1, TP.HCM"
+    },
+    {
+      "id": 2,
+      "name": "Tran Thi B",
+      "email": "b@example.com",
+      "phone": "0912345678",
+      "address": "456 Đường XYZ, Quận 3, TP.HCM"
+    }
+  ]
+}

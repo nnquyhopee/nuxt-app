@@ -1,0 +1,37 @@
+{
+  "orders": [
+    {
+      "id": 1001,
+      "orderNumber": "ORD-20240619-01",
+      "date": "2024-06-19T14:00:00Z",
+      "status": "pending",
+      "userId": 1,
+      "customer": {
+        "name": "Nguyen Van A",
+        "email": "a@example.com",
+        "phone": "0901234567",
+        "address": "123 Đường ABC, Quận 1, TP.HCM"
+      },
+      "items": [
+        {
+          "productId": 3,
+          "name": "Asus ZenBook 14",
+          "price": 19990000,
+          "quantity": 1,
+          "thumbnail": "https://picsum.photos/id/12/600/400"
+        },
+        {
+          "productId": 4,
+          "name": "MSI Stealth 15M",
+          "price": 31044406,
+          "quantity": 1,
+          "thumbnail": "https://picsum.photos/id/17/600/400"
+        }
+      ],
+      "subtotal": 51034406,
+      "shippingFee": 30000,
+      "total": 51064406,
+      "paymentMethod": "COD"
+    }
+  ]
+}

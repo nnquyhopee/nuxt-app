@@ -1,0 +1,73 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "MacBook Pro M2",
+      "brand": "Apple",
+      "brandId": 1,
+      "categoryId": 2,
+      "description": "Powerful laptop with Apple M2 chip.",
+      "price": 34990000,
+      "quantity": 10,
+      "cpu": "Apple M2",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "gpu": "Apple M2 GPU",
+      "thumbnail": "https://picsum.photos/id/10/600/400",
+      "createdAt": "2024-01-10T10:00:00Z",
+      "updatedAt": "2024-06-01T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Dell XPS 13",
+      "brand": "Dell",
+      "brandId": 2,
+      "categoryId": 2,
+      "description": "Sleek and powerful ultrabook.",
+      "price": 28990000,
+      "quantity": 15,
+      "cpu": "Intel Core i7-1165G7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "gpu": "Intel Iris Xe",
+      "thumbnail": "https://picsum.photos/id/11/600/400",
+      "createdAt": "2024-02-15T10:00:00Z",
+      "updatedAt": "2024-06-05T12:00:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Asus ZenBook 14",
+      "brand": "Asus",
+      "brandId": 3,
+      "categoryId": 2,
+      "description": "Lightweight and powerful laptop for everyday use.",
+      "price": 19990000,
+      "quantity": 20,
+      "cpu": "AMD Ryzen 7 5800H",
+      "ram": "16GB",
+      "storage": "1TB SSD",
+      "gpu": "NVIDIA GeForce RTX 3050",
+      "thumbnail": "https://picsum.photos/id/12/600/400",
+      "createdAt": "2024-03-10T10:00:00Z",
+      "updatedAt": "2024-06-10T12:00:00Z"
+    },
+    {
+      "id": 4,
+      "name": "MSI Stealth 15M",
+      "brand": "MSI",
+      "brandId": 6,
+      "categoryId": 2,
+      "description": "Gaming laptop with powerful GPU and modern design.",
+      "price": 31044406,
+      "quantity": 12,
+      "cpu": "Apple M2",
+      "ram": "32GB",
+      "storage": "256GB SSD",
+      "gpu": "NVIDIA GeForce RTX 3050",
+      "thumbnail": "https://picsum.photos/id/17/600/400",
+      "createdAt": "2024-04-01T10:00:00Z",
+      "updatedAt": "2024-06-15T12:00:00Z"
+    }
+  ],
+  "total": 4
+}

@@ -2,9 +2,8 @@
   <v-app-bar class="header" color="primary" app flat>
     <v-container class="d-flex align-center">
       <router-link to="/" class="text-decoration-none">
-        <v-img src="/logo.svg" width="120" height="40" alt="Logo" />
+        <v-img :src="logo" width="120" height="40" alt="Logo" />
       </router-link>
-
       <v-spacer></v-spacer>
 
       <div class="search-container">
@@ -49,9 +48,9 @@
     </v-container>
   </v-app-bar>
 
-  <v-navigation-drawer v-model="cartDrawer" location="right" temporary>
+  <!-- <v-navigation-drawer v-model="cartDrawer" location="right" temporary>
     <CartDrawer @close="cartDrawer = false" />
-  </v-navigation-drawer>
+  </v-navigation-drawer> -->
 
   <v-menu v-model="userMenu" :close-on-content-click="false" location="bottom">
     <v-card min-width="200">
@@ -82,13 +81,13 @@ import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 import { useCartStore } from "~/stores/cart";
 import { useFavoriteStore } from "~/stores/favorite";
-
+import logo from "~/assets/images/logo.png";
 const router = useRouter();
 const cartStore = useCartStore();
 const favoriteStore = useFavoriteStore();
 
 const searchQuery = ref("");
-const cartDrawer = ref(false);
+
 const userMenu = ref(false);
 
 const cartItemCount = computed(() => cartStore.totalItems);
@@ -102,7 +101,8 @@ const handleSearch = () => {
 };
 
 const toggleCart = () => {
-  cartDrawer.value = !cartDrawer.value;
+  // cartDrawer.value = !cartDrawer.value;
+  router.push("/cart");
 };
 
 const toggleFavorites = () => {

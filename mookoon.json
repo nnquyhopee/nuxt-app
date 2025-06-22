@@ -1,201 +1,373 @@
 {
-    "uuid": "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
-    "lastMigration": 24,
-    "name": "Laptop E-commerce API",
-    "endpointPrefix": "api",
-    "latency": 0,
-    "port": 3001,
-    "hostname": "0.0.0.0",
-    "routes": [
+  "uuid": "7fdf6446-6261-4ea2-9f99-99f7b9cd5330",
+  "lastMigration": 33,
+  "name": "Laptop E-commerce API",
+  "endpointPrefix": "api",
+  "latency": 0,
+  "port": 8080,
+  "hostname": "",
+  "routes": [
+    {
+      "uuid": "f5a81b60-0c8d-4e1f-9f3b-6a7c9d0e2f1a",
+      "documentation": "Get all products with pagination and filtering",
+      "method": "get",
+      "endpoint": "products",
+      "responses": [
         {
-            "uuid": "f5a81b60-0c8d-4e1f-9f3b-6a7c9d0e2f1a",
-            "documentation": "Get all products with pagination and filtering",
-            "method": "get",
-            "endpoint": "products",
-            "responses": [
-                {
-                    "uuid": "8c9d0e1f-2a3b-4c5d-6e7f-8g9h0i1j2k3l",
-                    "body": "[\n  {{#repeat 12}}\n  {\n    \"id\": {{@index}},\n    \"name\": \"{{oneOf (array 'Laptop Apple MacBook Air' 'Dell XPS 13' 'HP Spectre x360' 'Lenovo ThinkPad X1 Carbon' 'Asus ZenBook 14' 'Acer Swift 5' 'MSI GS66 Stealth')}}\",\n    \"brand\": \"{{oneOf (array 'Apple' 'Dell' 'HP' 'Lenovo' 'Asus' 'Acer' 'MSI')}}\",\n    \"brandId\": {{oneOf (array 1 2 3 4 5 6 7)}},\n    \"categoryId\": {{oneOf (array 1 2 3 4 5)}},\n    \"price\": {{int 10000000 40000000}},\n    \"discountPercentage\": {{int 0 25}},\n    \"inStock\": {{boolean}},\n    \"cpu\": \"{{oneOf (array 'Intel Core i5-1135G7' 'Intel Core i7-1165G7' 'AMD Ryzen 5 5600H' 'AMD Ryzen 7 5800H' 'Apple M1' 'Apple M2' 'Intel Core i9-12900H')}}\",\n    \"ram\": \"{{oneOf (array '8GB' '16GB' '32GB' '64GB')}}\",\n    \"storage\": \"{{oneOf (array '256GB SSD' '512GB SSD' '1TB SSD' '2TB SSD')}}\",\n    \"gpu\": \"{{oneOf (array 'Intel Iris Xe' 'NVIDIA GeForce RTX 3050' 'NVIDIA GeForce RTX 3060' 'NVIDIA GeForce RTX 3070' 'AMD Radeon Graphics' 'Apple M1 GPU')}}\",\n    \"thumbnail\": \"https://picsum.photos/id/{{int 1 100}}/600/400\"\n  }\n  {{/repeat}}\n]",
-                    "latency": 0,
-                    "statusCode": 200,
-                    "label": "Success",
-                    "headers": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        },
-                        {
-                            "key": "x-total-count",
-                            "value": "100"
-                        }
-                    ],
-                    "filePath": "",
-                    "sendFileAsBody": false,
-                    "rules": [],
-                    "rulesOperator": "OR",
-                    "disableTemplating": false,
-                    "fallbackTo404": false,
-                    "default": true
-                }
-            ],
-            "enabled": true,
-            "responseMode": null
-        },
-        {
-            "uuid": "2b3c4d5e-6f7g-8h9i-0j1k-2l3m4n5o6p7",
-            "documentation": "Get product by ID",
-            "method": "get",
-            "endpoint": "products/:id",
-            "responses": [
-                {
-                    "uuid": "9d0e1f2g-3h4i-5j6k-7l8m-9n0o1p2q3r4",
-                    "body": "{\n  \"id\": {{request.params.id}},\n  \"name\": \"{{oneOf (array 'Laptop Apple MacBook Air M2' 'Dell XPS 13 Plus' 'HP Spectre x360 16' 'Lenovo ThinkPad X1 Carbon Gen 10' 'Asus ZenBook Pro 14 Duo OLED' 'Acer Swift Edge' 'MSI Creator Z17')}}\",\n  \"brand\": \"{{oneOf (array 'Apple' 'Dell' 'HP' 'Lenovo' 'Asus' 'Acer' 'MSI')}}\",\n  \"brandId\": {{oneOf (array 1 2 3 4 5 6 7)}},\n  \"categoryId\": {{oneOf (array 1 2 3 4 5)}},\n  \"price\": {{int 10000000 40000000}},\n  \"discountPercentage\": {{int 0 25}},\n  \"inStock\": {{boolean}},\n  \"cpu\": \"{{oneOf (array 'Intel Core i5-1240P' 'Intel Core i7-1260P' 'AMD Ryzen 5 6600H' 'AMD Ryzen 7 6800H' 'Apple M1' 'Apple M2' 'Intel Core i9-12900H')}}\",\n  \"ram\": \"{{oneOf (array '8GB' '16GB' '32GB' '64GB')}}\",\n  \"storage\": \"{{oneOf (array '256GB SSD' '512GB SSD' '1TB SSD' '2TB SSD')}}\",\n  \"gpu\": \"{{oneOf (array 'Intel Iris Xe' 'NVIDIA GeForce RTX 3050' 'NVIDIA GeForce RTX 3060' 'NVIDIA GeForce RTX 3070' 'AMD Radeon Graphics' 'Apple M2 GPU')}}\",\n  \"display\": \"{{oneOf (array '13.3-inch Retina' '14-inch OLED' '15.6-inch IPS' '16-inch Mini-LED' '17.3-inch 165Hz')}}\",\n  \"os\": \"{{oneOf (array 'macOS' 'Windows 11 Home' 'Windows 11 Pro' 'Ubuntu Linux')}}\",\n  \"weight\": \"{{oneOf (array '1.29 kg' '1.4 kg' '1.6 kg' '1.8 kg' '2.1 kg')}}\",\n  \"images\": [\n    \"https://picsum.photos/id/{{int 1 20}}/800/600\",\n    \"https://picsum.photos/id/{{int 21 40}}/800/600\",\n    \"https://picsum.photos/id/{{int 41 60}}/800/600\",\n    \"https://picsum.photos/id/{{int 61 80}}/800/600\"\n  ],\n  \"description\": \"<p>Sản phẩm laptop cao cấp với hiệu năng mạnh mẽ, màn hình sắc nét và thời lượng pin dài. Thiết kế hiện đại, mỏng nhẹ phù hợp cho công việc di động và giải trí.</p><p>Bàn phím chiclet với hành trình phím thoải mái, hệ thống tản nhiệt tiên tiến đảm bảo máy luôn mát mẻ khi sử dụng trong thời gian dài.</p><h3>Tính năng nổi bật:</h3><ul><li>Hiệu năng mạnh mẽ với {{oneOf (array 'Intel Core i7' 'Apple M2' 'AMD Ryzen 7')}}</li><li>Màn hình {{oneOf (array 'Retina' 'OLED' 'IPS')}} độ phân giải cao</li><li>Pin dùng liên tục đến {{int 8 15}} giờ</li><li>Tản nhiệt hiệu quả, vận hành êm ái</li></ul>\",\n  \"promotions\": [\n    \"Tặng kèm balo laptop chính hãng\",\n    \"Giảm 10% khi mua cùng chuột và bàn phím\",\n    \"Bảo hành 24 tháng chính hãng\",\n    \"Miễn phí cài đặt phần mềm\"\n  ]\n}",
-                    "latency": 0,
-                    "statusCode": 200,
-                    "label": "Success",
-                    "headers": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "filePath": "",
-                    "sendFileAsBody": false,
-                    "rules": [],
-                    "rulesOperator": "OR",
-                    "disableTemplating": false,
-                    "fallbackTo404": false,
-                    "default": true
-                }
-            ],
-            "enabled": true,
-            "responseMode": null
-        },
-        {
-            "uuid": "3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8",
-            "documentation": "Login endpoint",
-            "method": "post",
-            "endpoint": "auth/login",
-            "responses": [
-                {
-                    "uuid": "0e1f2g3h-4i5j-6k7l-8m9n-0o1p2q3r4s5",
-                    "body": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3QgVXNlciIsImlhdCI6MTUxNjIzOTAyMn0\",\n  \"user\": {\n    \"id\": 1,\n    \"name\": \"Test User\",\n    \"email\": \"{{body.email}}\"\n  }\n}",
-                    "latency": 0,
-                    "statusCode": 200,
-                    "label": "Success",
-                    "headers": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "filePath": "",
-                    "sendFileAsBody": false,
-                    "rules": [],
-                    "rulesOperator": "OR",
-                    "disableTemplating": false,
-                    "fallbackTo404": false,
-                    "default": true
-                }
-            ],
-            "enabled": true,
-            "responseMode": null
-        },
-        {
-            "uuid": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9",
-            "documentation": "Get cart items",
-            "method": "get",
-            "endpoint": "cart",
-            "responses": [
-                {
-                    "uuid": "1f2g3h4i-5j6k-7l8m-9n0o-1p2q3r4s5t6",
-                    "body": "{\n  \"items\": [\n    {{#repeat (int 1 4)}}\n    {\n      \"id\": {{@index}},\n      \"productId\": {{int 1 20}},\n      \"name\": \"{{oneOf (array 'Laptop Apple MacBook Air' 'Dell XPS 13' 'HP Spectre x360' 'Lenovo ThinkPad X1' 'Asus ZenBook')}}\",\n      \"price\": {{int 10000000 35000000}},\n      \"quantity\": {{int 1 3}},\n      \"thumbnail\": \"https://picsum.photos/id/{{int 1 100}}/200/200\"\n    }\n    {{/repeat}}\n  ],\n  \"subtotal\": {{int 15000000 90000000}},\n  \"shippingFee\": 30000,\n  \"total\": {{int 15030000 90030000}}\n}",
-                    "latency": 0,
-                    "statusCode": 200,
-                    "label": "Success",
-                    "headers": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "filePath": "",
-                    "sendFileAsBody": false,
-                    "rules": [],
-                    "rulesOperator": "OR",
-                    "disableTemplating": false,
-                    "fallbackTo404": false,
-                    "default": true
-                }
-            ],
-            "enabled": true,
-            "responseMode": null
-        },
-        {
-            "uuid": "5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0",
-            "documentation": "Create order",
-            "method": "post",
-            "endpoint": "orders",
-            "responses": [
-                {
-                    "uuid": "2g3h4i5j-6k7l-8m9n-0o1p-2q3r4s5t6u7",
-                    "body": "{\n  \"id\": {{int 1000 9999}},\n  \"orderNumber\": \"ORD-{{int 10000 99999}}\",\n  \"date\": \"{{now}}\",\n  \"status\": \"pending\",\n  \"customer\": {\n    \"name\": \"{{body.customer.name}}\",\n    \"email\": \"{{body.customer.email}}\",\n    \"phone\": \"{{body.customer.phone}}\",\n    \"address\": \"{{body.customer.address}}\"\n  },\n  \"items\": {{body.items}},\n  \"subtotal\": {{body.subtotal}},\n  \"shippingFee\": {{body.shippingFee}},\n  \"total\": {{body.total}},\n  \"paymentMethod\": \"{{body.paymentMethod}}\"\n}",
-                    "latency": 0,
-                    "statusCode": 201,
-                    "label": "Success",
-                    "headers": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "filePath": "",
-                    "sendFileAsBody": false,
-                    "rules": [],
-                    "rulesOperator": "OR",
-                    "disableTemplating": false,
-                    "fallbackTo404": false,
-                    "default": true
-                }
-            ],
-            "enabled": true,
-            "responseMode": null
+          "uuid": "e09dee40-c877-4a43-a837-b7dae240cfe0",
+          "body": "[\n  {{#repeat 12}}\n  {\n    \"id\": {{@index}},\n    \"name\": \"{{oneOf (array 'Laptop Apple MacBook Air' 'Dell XPS 13' 'HP Spectre x360' 'Lenovo ThinkPad X1 Carbon' 'Asus ZenBook 14' 'Acer Swift 5' 'MSI GS66 Stealth')}}\",\n    \"brand\": \"{{oneOf (array 'Apple' 'Dell' 'HP' 'Lenovo' 'Asus' 'Acer' 'MSI')}}\",\n    \"brandId\": {{oneOf (array 1 2 3 4 5 6 7)}},\n    \"categoryId\": {{oneOf (array 1 2 3 4 5)}},\n    \"price\": {{int 10000000 40000000}},\n    \"discountPercentage\": {{int 0 25}},\n    \"inStock\": {{boolean}},\n    \"cpu\": \"{{oneOf (array 'Intel Core i5-1135G7' 'Intel Core i7-1165G7' 'AMD Ryzen 5 5600H' 'AMD Ryzen 7 5800H' 'Apple M1' 'Apple M2' 'Intel Core i9-12900H')}}\",\n    \"ram\": \"{{oneOf (array '8GB' '16GB' '32GB' '64GB')}}\",\n    \"storage\": \"{{oneOf (array '256GB SSD' '512GB SSD' '1TB SSD' '2TB SSD')}}\",\n    \"gpu\": \"{{oneOf (array 'Intel Iris Xe' 'NVIDIA GeForce RTX 3050' 'NVIDIA GeForce RTX 3060' 'NVIDIA GeForce RTX 3070' 'AMD Radeon Graphics' 'Apple M1 GPU')}}\",\n    \"thumbnail\": \"https://picsum.photos/id/{{int 1 100}}/600/400\"\n  }\n  {{/repeat}}\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "x-total-count",
+              "value": "100"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": [],
+          "bodyType": "DATABUCKET",
+          "databucketID": "i9k9"
         }
-    ],
-    "proxyMode": false,
-    "proxyHost": "",
-    "proxyRemovePrefix": false,
-    "tlsOptions": {
-        "enabled": false,
-        "type": "CERT",
-        "pfxPath": "",
-        "certPath": "",
-        "keyPath": "",
-        "caPath": "",
-        "passphrase": ""
+      ],
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
     },
-    "cors": true,
-    "headers": [
+    {
+      "uuid": "2c6b39e7-c51a-4e26-a963-1f9e1a0ce129",
+      "documentation": "Get product by ID",
+      "method": "get",
+      "endpoint": "products/:id",
+      "responses": [
         {
-            "key": "Content-Type",
-            "value": "application/json"
+          "uuid": "e41d5828-c45f-4e04-96eb-66776624f091",
+          "body": "{\r\n      \"id\": 1,\r\n      \"name\": \"MacBook Pro M2\",\r\n      \"brand\": \"Apple\",\r\n      \"brandId\": 1,\r\n      \"categoryId\": 2,\r\n      \"description\": \"Powerful laptop with Apple M2 chip.\",\r\n      \"price\": 34990000,\r\n      \"quantity\": 10,\r\n      \"cpu\": \"Apple M2\",\r\n      \"ram\": \"16GB\",\r\n      \"storage\": \"512GB SSD\",\r\n      \"gpu\": \"Apple M2 GPU\",\r\n      \"thumbnail\": \"https://picsum.photos/id/10/600/400\",\r\n      \"createdAt\": \"2024-01-10T10:00:00Z\",\r\n      \"updatedAt\": \"2024-06-01T12:00:00Z\"\r\n    }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": [],
+          "bodyType": "INLINE",
+          "databucketID": ""
         },
         {
-            "key": "Access-Control-Allow-Origin",
-            "value": "*"
-        }
-    ],
-    "proxyReqHeaders": [
+          "uuid": "909e0336-294f-430c-af7b-26bffd89077f",
+          "body": "{\r\n      \"id\": 2,\r\n      \"name\": \"Dell XPS 13\",\r\n      \"brand\": \"Dell\",\r\n      \"brandId\": 2,\r\n      \"categoryId\": 2,\r\n      \"description\": \"Sleek and powerful ultrabook.\",\r\n      \"price\": 28990000,\r\n      \"quantity\": 15,\r\n      \"cpu\": \"Intel Core i7-1165G7\",\r\n      \"ram\": \"16GB\",\r\n      \"storage\": \"512GB SSD\",\r\n      \"gpu\": \"Intel Iris Xe\",\r\n      \"thumbnail\": \"https://picsum.photos/id/11/600/400\",\r\n      \"createdAt\": \"2024-02-15T10:00:00Z\",\r\n      \"updatedAt\": \"2024-06-05T12:00:00Z\"\r\n    }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "2",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
         {
-            "key": "",
-            "value": ""
-        }
-    ],
-    "proxyResHeaders": [
+          "uuid": "589546d9-c415-48d5-a5ac-91121148d114",
+          "body": " {\r\n      \"id\": 3,\r\n      \"name\": \"Asus ZenBook 14\",\r\n      \"brand\": \"Asus\",\r\n      \"brandId\": 3,\r\n      \"categoryId\": 2,\r\n      \"description\": \"Lightweight and powerful laptop for everyday use.\",\r\n      \"price\": 19990000,\r\n      \"quantity\": 20,\r\n      \"cpu\": \"AMD Ryzen 7 5800H\",\r\n      \"ram\": \"16GB\",\r\n      \"storage\": \"1TB SSD\",\r\n      \"gpu\": \"NVIDIA GeForce RTX 3050\",\r\n      \"thumbnail\": \"https://picsum.photos/id/12/600/400\",\r\n      \"createdAt\": \"2024-03-10T10:00:00Z\",\r\n      \"updatedAt\": \"2024-06-10T12:00:00Z\"\r\n    }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "3",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
         {
-            "key": "",
-            "value": ""
+          "uuid": "07085f19-a9c8-4608-89b8-7772ceb20ba2",
+          "body": "{\r\n      \"id\": 4,\r\n      \"name\": \"MSI Stealth 15M\",\r\n      \"brand\": \"MSI\",\r\n      \"brandId\": 6,\r\n      \"categoryId\": 2,\r\n      \"description\": \"Gaming laptop with powerful GPU and modern design.\",\r\n      \"price\": 31044406,\r\n      \"quantity\": 12,\r\n      \"cpu\": \"Apple M2\",\r\n      \"ram\": \"32GB\",\r\n      \"storage\": \"256GB SSD\",\r\n      \"gpu\": \"NVIDIA GeForce RTX 3050\",\r\n      \"thumbnail\": \"https://picsum.photos/id/17/600/400\",\r\n      \"createdAt\": \"2024-04-01T10:00:00Z\",\r\n      \"updatedAt\": \"2024-06-15T12:00:00Z\"\r\n    }",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "id",
+              "value": "4",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
         }
-    ],
-    "data": []
+      ],
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7d271a15-1db9-4bcd-b0aa-2a2c848c943d",
+      "documentation": "Login endpoint",
+      "method": "post",
+      "endpoint": "auth/login",
+      "responses": [
+        {
+          "uuid": "884977f0-a3bc-4a8a-92f9-d3f5c5cda98f",
+          "body": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlRlc3QgVXNlciIsImlhdCI6MTUxNjIzOTAyMn0\",\n  \"user\": {\n    \"id\": 1,\n    \"name\": \"Test User\",\n    \"email\": \"{{body.email}}\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": [],
+          "bodyType": "INLINE",
+          "databucketID": ""
+        }
+      ],
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "d36b75fa-3cae-4466-b264-706080de3137",
+      "documentation": "Get cart items",
+      "method": "get",
+      "endpoint": "cart",
+      "responses": [
+        {
+          "uuid": "07b497ea-d867-473c-8570-0368fe859ed3",
+          "body": "{\n  \"items\": [\n    {{#repeat (int 1 4)}}\n    {\n      \"id\": {{@index}},\n      \"productId\": {{int 1 20}},\n      \"name\": \"{{oneOf (array 'Laptop Apple MacBook Air' 'Dell XPS 13' 'HP Spectre x360' 'Lenovo ThinkPad X1' 'Asus ZenBook')}}\",\n      \"price\": {{int 10000000 35000000}},\n      \"quantity\": {{int 1 3}},\n      \"thumbnail\": \"https://picsum.photos/id/{{int 1 100}}/200/200\"\n    }\n    {{/repeat}}\n  ],\n  \"subtotal\": {{int 15000000 90000000}},\n  \"shippingFee\": 30000,\n  \"total\": {{int 15030000 90030000}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": [],
+          "bodyType": "DATABUCKET",
+          "databucketID": "xzdx"
+        }
+      ],
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "1d005abb-0736-4220-a3c6-392e1c59e27f",
+      "documentation": "Create order",
+      "method": "post",
+      "endpoint": "orders",
+      "responses": [
+        {
+          "uuid": "b79d0bed-9818-4d4d-81c6-a07beccbf23f",
+          "body": "{\n  \"id\": {{int 1000 9999}},\n  \"orderNumber\": \"ORD-{{int 10000 99999}}\",\n  \"date\": \"{{now}}\",\n  \"status\": \"pending\",\n  \"customer\": {\n    \"name\": \"{{body.customer.name}}\",\n    \"email\": \"{{body.customer.email}}\",\n    \"phone\": \"{{body.customer.phone}}\",\n    \"address\": \"{{body.customer.address}}\"\n  },\n  \"items\": {{body.items}},\n  \"subtotal\": {{body.subtotal}},\n  \"shippingFee\": {{body.shippingFee}},\n  \"total\": {{body.total}},\n  \"paymentMethod\": \"{{body.paymentMethod}}\"\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "Success",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": [],
+          "bodyType": "DATABUCKET",
+          "databucketID": "233s"
+        }
+      ],
+      "responseMode": null,
+      "type": "http",
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "a5f48174-f953-4467-a821-07fc321d7c66",
+      "id": "xzdx",
+      "name": "cart",
+      "documentation": "",
+      "value": "{\r\n  \"userId\": 1,\r\n  \"items\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"name\": \"MacBook Pro M2\",\r\n      \"price\": 34990000,\r\n      \"quantity\": 1,\r\n      \"thumbnail\": \"https://picsum.photos/id/10/600/400\"\r\n    },\r\n    {\r\n      \"productId\": 2,\r\n      \"name\": \"Dell XPS 13\",\r\n      \"price\": 28990000,\r\n      \"quantity\": 2,\r\n      \"thumbnail\": \"https://picsum.photos/id/11/600/400\"\r\n    }\r\n  ],\r\n  \"subtotal\": 92970000,\r\n  \"shippingFee\": 30000,\r\n  \"total\": 93000000\r\n}\r\n"
+    },
+    {
+      "uuid": "6944edad-8b2f-4945-ae8a-9ab1af69d124",
+      "id": "233s",
+      "name": "orders",
+      "documentation": "",
+      "value": "{\r\n  \"orders\": [\r\n    {\r\n      \"id\": 1001,\r\n      \"orderNumber\": \"ORD-20240619-01\",\r\n      \"date\": \"2024-06-19T14:00:00Z\",\r\n      \"status\": \"pending\",\r\n      \"userId\": 1,\r\n      \"customer\": {\r\n        \"name\": \"Nguyen Van A\",\r\n        \"email\": \"a@example.com\",\r\n        \"phone\": \"0901234567\",\r\n        \"address\": \"123 Đường ABC, Quận 1, TP.HCM\"\r\n      },\r\n      \"items\": [\r\n        {\r\n          \"productId\": 3,\r\n          \"name\": \"Asus ZenBook 14\",\r\n          \"price\": 19990000,\r\n          \"quantity\": 1,\r\n          \"thumbnail\": \"https://picsum.photos/id/12/600/400\"\r\n        },\r\n        {\r\n          \"productId\": 4,\r\n          \"name\": \"MSI Stealth 15M\",\r\n          \"price\": 31044406,\r\n          \"quantity\": 1,\r\n          \"thumbnail\": \"https://picsum.photos/id/17/600/400\"\r\n        }\r\n      ],\r\n      \"subtotal\": 51034406,\r\n      \"shippingFee\": 30000,\r\n      \"total\": 51064406,\r\n      \"paymentMethod\": \"COD\"\r\n    }\r\n  ]\r\n}\r\n"
+    },
+    {
+      "uuid": "cf619e38-2bea-4c89-b106-2598d7950e76",
+      "id": "aljx",
+      "name": "users",
+      "documentation": "",
+      "value": "{\r\n  \"users\": [\r\n    {\r\n      \"id\": 1,\r\n      \"name\": \"Nguyen Van A\",\r\n      \"email\": \"a@example.com\",\r\n      \"phone\": \"0901234567\",\r\n      \"address\": \"123 Đường ABC, Quận 1, TP.HCM\"\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"name\": \"Tran Thi B\",\r\n      \"email\": \"b@example.com\",\r\n      \"phone\": \"0912345678\",\r\n      \"address\": \"456 Đường XYZ, Quận 3, TP.HCM\"\r\n    }\r\n  ]\r\n}\r\n"
+    },
+    {
+      "uuid": "6083355a-f152-4f18-9e6a-0ef76d7283a7",
+      "id": "i9k9",
+      "name": "products",
+      "documentation": "",
+      "value": "{\r\n  \"products\": [\r\n    {\r\n      \"id\": 1,\r\n      \"name\": \"MacBook Pro M2\",\r\n      \"brand\": \"Apple\",\r\n      \"brandId\": 1,\r\n      \"categoryId\": 2,\r\n      \"description\": \"Powerful laptop with Apple M2 chip.\",\r\n      \"price\": 34990000,\r\n      \"quantity\": 10,\r\n      \"cpu\": \"Apple M2\",\r\n      \"ram\": \"16GB\",\r\n      \"storage\": \"512GB SSD\",\r\n      \"gpu\": \"Apple M2 GPU\",\r\n      \"thumbnail\": \"https://picsum.photos/id/10/600/400\",\r\n      \"createdAt\": \"2024-01-10T10:00:00Z\",\r\n      \"updatedAt\": \"2024-06-01T12:00:00Z\"\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"name\": \"Dell XPS 13\",\r\n      \"brand\": \"Dell\",\r\n      \"brandId\": 2,\r\n      \"categoryId\": 2,\r\n      \"description\": \"Sleek and powerful ultrabook.\",\r\n      \"price\": 28990000,\r\n      \"quantity\": 15,\r\n      \"cpu\": \"Intel Core i7-1165G7\",\r\n      \"ram\": \"16GB\",\r\n      \"storage\": \"512GB SSD\",\r\n      \"gpu\": \"Intel Iris Xe\",\r\n      \"thumbnail\": \"https://picsum.photos/id/11/600/400\",\r\n      \"createdAt\": \"2024-02-15T10:00:00Z\",\r\n      \"updatedAt\": \"2024-06-05T12:00:00Z\"\r\n    },\r\n    {\r\n      \"id\": 3,\r\n      \"name\": \"Asus ZenBook 14\",\r\n      \"brand\": \"Asus\",\r\n      \"brandId\": 3,\r\n      \"categoryId\": 2,\r\n      \"description\": \"Lightweight and powerful laptop for everyday use.\",\r\n      \"price\": 19990000,\r\n      \"quantity\": 20,\r\n      \"cpu\": \"AMD Ryzen 7 5800H\",\r\n      \"ram\": \"16GB\",\r\n      \"storage\": \"1TB SSD\",\r\n      \"gpu\": \"NVIDIA GeForce RTX 3050\",\r\n      \"thumbnail\": \"https://picsum.photos/id/12/600/400\",\r\n      \"createdAt\": \"2024-03-10T10:00:00Z\",\r\n      \"updatedAt\": \"2024-06-10T12:00:00Z\"\r\n    },\r\n    {\r\n      \"id\": 4,\r\n      \"name\": \"MSI Stealth 15M\",\r\n      \"brand\": \"MSI\",\r\n      \"brandId\": 6,\r\n      \"categoryId\": 2,\r\n      \"description\": \"Gaming laptop with powerful GPU and modern design.\",\r\n      \"price\": 31044406,\r\n      \"quantity\": 12,\r\n      \"cpu\": \"Apple M2\",\r\n      \"ram\": \"32GB\",\r\n      \"storage\": \"256GB SSD\",\r\n      \"gpu\": \"NVIDIA GeForce RTX 3050\",\r\n      \"thumbnail\": \"https://picsum.photos/id/17/600/400\",\r\n      \"createdAt\": \"2024-04-01T10:00:00Z\",\r\n      \"updatedAt\": \"2024-06-15T12:00:00Z\"\r\n    }\r\n  ],\r\n  \"total\": 4\r\n}\r\n"
+    }
+  ],
+  "folders": [],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "f5a81b60-0c8d-4e1f-9f3b-6a7c9d0e2f1a"
+    },
+    {
+      "type": "route",
+      "uuid": "2c6b39e7-c51a-4e26-a963-1f9e1a0ce129"
+    },
+    {
+      "type": "route",
+      "uuid": "7d271a15-1db9-4bcd-b0aa-2a2c848c943d"
+    },
+    {
+      "type": "route",
+      "uuid": "d36b75fa-3cae-4466-b264-706080de3137"
+    },
+    {
+      "type": "route",
+      "uuid": "1d005abb-0736-4220-a3c6-392e1c59e27f"
+    }
+  ],
+  "callbacks": []
 }
